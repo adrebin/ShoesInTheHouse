@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { SONGS } from './Lyrics';
+import { BrowserRouter } from 'react-router-dom';
 
 // The main App component
 const App = () => {
@@ -14,6 +15,14 @@ const App = () => {
   const timerRef = useRef(null); // Changed from intervalRef to timerRef for setTimeout
   const lineRefs = useRef([]);
   const containerRef = useRef(null);
+
+  // Define background animations for each song index
+  const backgroundAnimations = [
+    "animate-pulse-bg-1", // For song 0
+    "animate-pulse-bg-2", // For song 1
+    "animate-pulse-bg-3", // For song 2
+    "animate-pulse-bg-4", // For song 3
+  ];
 
   // Get the current song
   const currentSong = songs[currentSongIndex];
@@ -167,11 +176,16 @@ const App = () => {
   }, [currentLineIndex]);
 
   // CSS classes using Tailwind for styling
-  const containerClass = "flex flex-col items-center justify-center h-screen bg-gray-900 text-white font-sans overflow-hidden transition-all duration-1000 ease-in-out bg-gradient-to-br from-indigo-900 to-purple-900";
-  const titleContainerClass = "text-center text-4xl sm:text-6xl md:text-8xl font-bold transition-opacity duration-1000 ease-in-out";
+  const containerClass = twMerge(
+    "flex flex-col items-center justify-center h-screen bg-gray-900 text-white font-sans overflow-hidden transition-all duration-1000 ease-in-out bg-gradient-to-br",
+    backgroundAnimations[currentSongIndex]
+  );
+
+  // Custom Fonts (imported in the HTML file)
+  const titleContainerClass = "text-center text-4xl sm:text-6xl md:text-8xl font-bold transition-opacity duration-1000 ease-in-out font-display";
   const songTitleClass = "text-yellow-400 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]";
   const bandNameClass = "text-white text-opacity-80 mt-4 text-2xl sm:text-4xl md:text-5xl drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]";
-  const lyricsContainerClass = "text-center transition-all duration-1000 ease-in-out w-full max-w-7xl h-full overflow-y-scroll px-4 mt-8 no-scrollbar scroll-smooth";
+  const lyricsContainerClass = "text-center transition-all duration-1000 ease-in-out w-full max-w-7xl h-full overflow-y-scroll px-4 mt-8 no-scrollbar scroll-smooth font-body";
   const lineClass = (index) => {
     // Merge classes to avoid conflicts
     const baseClasses = "text-center font-semibold my-4 transition-all duration-500 ease-in-out";
@@ -209,10 +223,12 @@ const App = () => {
         </div>
       )}
 
-      {/* Instructions on how to use the app */}
-      <div className={instructionsClass}>
-        <p>Press 'Space' to start/pause. Use '↑' / '↓' to speed up/slow down. Use '→' to jump to the next line. Use '←' to go back one line. Press 'n' for next song. Press 'p' for previous song.</p>
-      </div>
+      {/* Instructions on how to use the app, now conditionally rendered based on currentLineIndex */}
+      {currentLineIndex === -1 && (
+        <div className={instructionsClass}>
+          <p>Press 'Space' to start/pause. Use '↑' / '↓' to speed up/slow down. Use '→' to jump to the next line. Use '←' to go back one line. Press 'n' for next song. Press 'p' for previous song.</p>
+        </div>
+      )}
     </div>
   );
 };
