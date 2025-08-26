@@ -19,8 +19,9 @@ const App = () => {
   const currentSong = songs[currentSongIndex];
 
   useEffect(() => {
-    const baseSongLineDuration = Math.floor(60000 / currentSong.bpm)
-    setLineDuration(baseSongLineDuration)
+    // set initial line duration for the current song
+    // can be changed by future lines
+    setLineDuration(currentSong.avgLineDuration)
   }, [currentSong])
 
   // Function to start the scrolling timer
