@@ -21,31 +21,21 @@
   }
 }
 
-/* --- Animated Background Keyframes --- */
-/* These keyframes create the subtle pulsating/color-shifting backgrounds */
+* --- Animated Background Keyframes --- */
 
-/* Animation for the first song (index 0) */
+/* These keyframes create the subtle pulsating/color-shifting backgrounds */
 @keyframes pulse-bg-1 {
-  0% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
 
   50% {
     background-position: 100% 50%;
   }
-
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
-.animate-pulse-bg-1 {
-  background-size: 200% 200%;
-  animation: pulse-bg-1 15s ease infinite;
-  background-image: linear-gradient(-45deg, #1e3a8a, #4f46e5, #9333ea, #c026d3);
-}
-
-/* Animation for the second song (index 1) */
 @keyframes pulse-bg-2 {
 
   0%,
@@ -58,13 +48,6 @@
   }
 }
 
-.animate-pulse-bg-2 {
-  background-size: 200% 200%;
-  animation: pulse-bg-2 20s ease infinite;
-  background-image: linear-gradient(to right, #001f3f, #0074e4, #001f3f);
-}
-
-/* Animation for the third song (index 2) */
 @keyframes pulse-bg-3 {
   0% {
     transform: scale(1);
@@ -79,12 +62,6 @@
   }
 }
 
-.animate-pulse-bg-3 {
-  animation: pulse-bg-3 18s ease infinite;
-  background: radial-gradient(circle, #331557 0%, #170d22 100%);
-}
-
-/* Animation for the fourth song (index 3) */
 @keyframes pulse-bg-4 {
 
   0%,
@@ -97,7 +74,254 @@
   }
 }
 
+/* New creative keyframes for songs 5-17 */
+@keyframes pulse-bg-5 {
+
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes pulse-bg-6 {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes pulse-bg-7 {
+
+  0%,
+  100% {
+    background-size: 150% 150%;
+  }
+
+  50% {
+    background-size: 200% 200%;
+  }
+}
+
+@keyframes pulse-bg-8 {
+
+  0%,
+  100% {
+    background-position: 100% 0%;
+  }
+
+  50% {
+    background-position: 0% 100%;
+  }
+}
+
+@keyframes pulse-bg-9 {
+
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-bg-10 {
+
+  0%,
+  100% {
+    background-position: center;
+  }
+
+  50% {
+    background-position: top left;
+  }
+}
+
+@keyframes pulse-bg-11 {
+
+  0%,
+  100% {
+    filter: contrast(100%);
+  }
+
+  50% {
+    filter: contrast(150%);
+  }
+}
+
+@keyframes pulse-bg-12 {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes pulse-bg-13 {
+
+  0%,
+  100% {
+    background-size: 100% 100%;
+  }
+
+  50% {
+    background-size: 110% 110%;
+  }
+}
+
+@keyframes pulse-bg-14 {
+
+  0%,
+  100% {
+    background-color: #3b82f6;
+  }
+
+  50% {
+    background-color: #8b5cf6;
+  }
+}
+
+@keyframes pulse-bg-15 {
+
+  0%,
+  100% {
+    background-position: 50% 0%;
+  }
+
+  50% {
+    background-position: 50% 100%;
+  }
+}
+
+@keyframes pulse-bg-16 {
+
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(1.05);
+  }
+}
+
+@keyframes pulse-bg-17 {
+
+  0%,
+  100% {
+    filter: grayscale(0%);
+  }
+
+  50% {
+    filter: grayscale(100%);
+  }
+}
+
+/* Tailwind classes to apply the animations to elements */
+.animate-pulse-bg-1 {
+  background-size: 200% 200%;
+  animation: pulse-bg-1 15s ease infinite;
+  background-image: linear-gradient(-45deg, #1e3a8a, #4f46e5, #9333ea, #c026d3);
+}
+
+.animate-pulse-bg-2 {
+  background-size: 200% 200%;
+  animation: pulse-bg-2 20s ease infinite;
+  background-image: linear-gradient(to right, #001f3f, #0074e4, #001f3f);
+}
+
+.animate-pulse-bg-3 {
+  animation: pulse-bg-3 18s ease infinite;
+  background: radial-gradient(circle, #331557 0%, #170d22 100%);
+}
+
 .animate-pulse-bg-4 {
   animation: pulse-bg-4 25s ease infinite;
   background-image: linear-gradient(135deg, #8a2be2, #4b0082, #9400d3);
+}
+
+/* New creative styles for songs 5-17 */
+.animate-pulse-bg-5 {
+  background-size: 200% 200%;
+  animation: pulse-bg-5 20s ease-in-out infinite alternate;
+  background-image: linear-gradient(-90deg, #d3c942, #8b5d3c, #964b00);
+}
+
+.animate-pulse-bg-6 {
+  background-size: 200% 200%;
+  animation: pulse-bg-6 30s linear infinite;
+  background-image: linear-gradient(45deg, #a3e635, #22c55e, #10b981);
+}
+
+.animate-pulse-bg-7 {
+  animation: pulse-bg-7 18s ease infinite;
+  background-size: 150% 150%;
+  background-image: linear-gradient(135deg, #e34c7b, #c33764, #9f2a5b);
+}
+
+.animate-pulse-bg-8 {
+  background-size: 200% 200%;
+  animation: pulse-bg-8 25s ease infinite alternate;
+  background-image: linear-gradient(180deg, #1e3a8a, #4f46e5, #9333ea, #c026d3);
+}
+
+.animate-pulse-bg-9 {
+  animation: pulse-bg-9 5s ease-in-out infinite;
+  background: radial-gradient(circle, #f9a8d4, #f472b6, #ec4899);
+}
+
+.animate-pulse-bg-10 {
+  background-size: 150% 150%;
+  animation: pulse-bg-10 23s ease infinite alternate;
+  background-image: linear-gradient(to bottom, #113c5f, #072a44, #01152a);
+}
+
+.animate-pulse-bg-11 {
+  animation: pulse-bg-11 19s ease infinite alternate;
+  background: radial-gradient(circle, #89cff0, #4682b4);
+}
+
+.animate-pulse-bg-12 {
+  animation: pulse-bg-12 21s ease-in-out infinite alternate;
+  background-image: linear-gradient(45deg, #e6b2e1, #c895c8, #a978a9);
+}
+
+.animate-pulse-bg-13 {
+  animation: pulse-bg-13 24s linear infinite alternate;
+  background: radial-gradient(circle, #f0e68c, #ffd700);
+}
+
+.animate-pulse-bg-14 {
+  animation: pulse-bg-14 26s ease infinite alternate;
+  background: linear-gradient(to right, #455a64, #78909c);
+}
+
+.animate-pulse-bg-15 {
+  background-size: 150% 150%;
+  animation: pulse-bg-15 20s ease-in-out infinite alternate;
+  background-image: linear-gradient(0deg, #d2691e, #a0522d);
+}
+
+.animate-pulse-bg-16 {
+  animation: pulse-bg-16 18s ease infinite alternate;
+  background: radial-gradient(circle, #8b0000, #b22222);
+}
+
+.animate-pulse-bg-17 {
+  animation: pulse-bg-17 21s linear infinite alternate;
+  background: linear-gradient(135deg, #2f4f4f, #5f9ea0);
 }

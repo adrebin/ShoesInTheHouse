@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { SONGS } from './Lyrics';
-import { BrowserRouter } from 'react-router-dom';
 
 // The main App component
 const App = () => {
@@ -18,10 +17,23 @@ const App = () => {
 
   // Define background animations for each song index
   const backgroundAnimations = [
-    "animate-pulse-bg-1", // For song 0
-    "animate-pulse-bg-2", // For song 1
-    "animate-pulse-bg-3", // For song 2
-    "animate-pulse-bg-4", // For song 3
+    "animate-pulse-bg-1",
+    "animate-pulse-bg-2",
+    "animate-pulse-bg-3",
+    "animate-pulse-bg-4",
+    "animate-pulse-bg-5",
+    "animate-pulse-bg-6",
+    "animate-pulse-bg-7",
+    "animate-pulse-bg-8",
+    "animate-pulse-bg-9",
+    "animate-pulse-bg-10",
+    "animate-pulse-bg-11",
+    "animate-pulse-bg-12",
+    "animate-pulse-bg-13",
+    "animate-pulse-bg-14",
+    "animate-pulse-bg-15",
+    "animate-pulse-bg-16",
+    "animate-pulse-bg-17",
   ];
 
   // Get the current song
@@ -161,18 +173,32 @@ const App = () => {
     };
   }, [scrolling, currentLineIndex, currentSong, lineDuration]);
 
-  // Effect to handle smooth scrolling of the lyrics
-  useEffect(() => {
-    // Only attempt to scroll if we are in the lyrics view and there's a valid line to scroll to
+  // Function to handle the smooth scrolling
+  const scrollToCenter = () => {
+    // Only proceed if refs are valid
     if (currentLineIndex >= 0 && lineRefs.current[currentLineIndex] && containerRef.current) {
       const lineElement = lineRefs.current[currentLineIndex];
+      const containerElement = containerRef.current;
 
-      // Use scrollIntoView to center the element
-      lineElement.scrollIntoView({
-        block: 'center',
+      // Manually calculate the scroll position to center the element
+      const containerHeight = containerElement.clientHeight;
+      const lineOffsetTop = lineElement.offsetTop;
+      const lineHeight = lineElement.clientHeight;
+
+      // Calculate the new scroll top position to center the element
+      const newScrollTop = lineOffsetTop - (containerHeight / 2) + (lineHeight / 2);
+
+      // Use the scrollTo method on the container for a smooth transition
+      containerElement.scrollTo({
+        top: newScrollTop,
         behavior: 'smooth'
       });
     }
+  };
+
+  // Effect to handle smooth scrolling of the lyrics
+  useEffect(() => {
+    scrollToCenter();
   }, [currentLineIndex]);
 
   // CSS classes using Tailwind for styling
@@ -185,7 +211,7 @@ const App = () => {
   const titleContainerClass = "text-center text-4xl sm:text-6xl md:text-8xl font-bold transition-opacity duration-1000 ease-in-out font-display";
   const songTitleClass = "text-yellow-400 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]";
   const bandNameClass = "text-white text-opacity-80 mt-4 text-2xl sm:text-4xl md:text-5xl drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]";
-  const lyricsContainerClass = "text-center transition-all duration-1000 ease-in-out w-full max-w-7xl h-full overflow-y-scroll px-4 mt-8 no-scrollbar scroll-smooth font-body";
+  const lyricsContainerClass = "flex flex-col items-center justify-center w-full max-w-7xl h-auto px-4 mt-8 scroll-smooth no-scrollbar";
   const lineClass = (index) => {
     // Merge classes to avoid conflicts
     const baseClasses = "text-center font-semibold my-4 transition-all duration-500 ease-in-out";
@@ -203,6 +229,30 @@ const App = () => {
   };
   const instructionsClass = "absolute bottom-8 text-white text-opacity-50 text-sm sm:text-base md:text-lg font-mono tracking-wide";
 
+  // Function to determine which lines to display in the limited view
+  const getVisibleLines = () => {
+    if (currentLineIndex < 0) return []; // No lines to display on title screen
+    const lines = currentSong.lyrics;
+    const windowSize = 5; // Total number of lines to display
+    const halfWindow = Math.floor(windowSize / 2);
+
+    let startIndex = Math.max(0, currentLineIndex - halfWindow);
+    let endIndex = startIndex + windowSize;
+
+    // Adjust for the end of the song to always show 5 lines if possible
+    if (endIndex > lines.length) {
+      endIndex = lines.length;
+      startIndex = Math.max(0, endIndex - windowSize);
+    }
+
+    return lines.slice(startIndex, endIndex).map((line, index) => ({
+      text: line,
+      originalIndex: startIndex + index,
+    }));
+  };
+
+  const visibleLines = getVisibleLines();
+
   // Render the teleprompter based on the current line index
   return (
     <div className={containerClass}>
@@ -214,12 +264,14 @@ const App = () => {
         </div>
       ) : (
         // Lyrics display
-        <div className={lyricsContainerClass} ref={containerRef}>
-          {currentSong.lyrics.map((line, index) => (
-            <p key={index} ref={el => lineRefs.current[index] = el} className={lineClass(index)}>
-              {typeof line === 'string' ? line : line.text}
-            </p>
-          ))}
+        <div className="flex items-center justify-center h-full">
+          <div className={twMerge(lyricsContainerClass, 'max-h-[75vh] md:max-h-[85vh]')} ref={containerRef}>
+            {visibleLines.map((lineObj) => (
+              <p key={lineObj.originalIndex} ref={el => lineRefs.current[lineObj.originalIndex] = el} className={lineClass(lineObj.originalIndex)}>
+                {typeof lineObj.text === 'string' ? lineObj.text : lineObj.text.text}
+              </p>
+            ))}
+          </div>
         </div>
       )}
 
