@@ -256,18 +256,22 @@ const App = () => {
           <p><b>'M'</b> to switch to single-line mode.</p>
           <p className="mt-2">Current Controls: <b>{scheme.name}</b></p>
           <p><b>'C'</b> to change scheme.</p>
-          <p className="mt-2">
-            • {formatKeys(scheme.lineAdvance)} to advance to next section.
-          </p>
-          <p>
-            • {formatKeys(scheme.lineBack)} to go back to previous section.
-          </p>
-          <p>
-            • {formatKeys(scheme.nextSong)} to next song.
-          </p>
-          <p>
-            • {formatKeys(scheme.prevSong)} to previous song.
-          </p>
+          <p className="mt-2" dangerouslySetInnerHTML={{
+            __html: `
+            • ${formatKeys(scheme.lineAdvance)} to advance to next section.
+          `}}></p>
+          <p dangerouslySetInnerHTML={{
+            __html: `
+            • ${formatKeys(scheme.lineBack)} to go back to previous section.
+          `}}></p>
+          <p dangerouslySetInnerHTML={{
+            __html: `
+            • ${formatKeys(scheme.nextSong)} to next song.
+          `}}></p>
+          <p dangerouslySetInnerHTML={{
+            __html: `
+            • ${formatKeys(scheme.prevSong)} to previous song.
+          `}}></p>
         </>
       );
     } else {
@@ -277,18 +281,22 @@ const App = () => {
           <p><b>'M'</b> to switch to multi-line mode.</p>
           <p className="mt-2">Current Controls: <b>{scheme.name}</b></p>
           <p><b>'C'</b> to change scheme.</p>
-          <p className="mt-2">
-            • {formatKeys(scheme.lineAdvance)} to advance highlight.
-          </p>
-          <p>
-            • {formatKeys(scheme.lineBack)} to go back.
-          </p>
-          <p>
-            • {formatKeys(scheme.nextSong)} to next song.
-          </p>
-          <p>
-            • {formatKeys(scheme.prevSong)} to previous song.
-          </p>
+          <p className="mt-2" dangerouslySetInnerHTML={{
+            __html: `
+            • ${formatKeys(scheme.lineAdvance)} to advance highlight.
+          `}}></p>
+          <p dangerouslySetInnerHTML={{
+            __html: `
+            • ${formatKeys(scheme.lineBack)} to go back.
+          `}}></p>
+          <p dangerouslySetInnerHTML={{
+            __html: `
+            • ${formatKeys(scheme.nextSong)} to next song.
+          `}}></p>
+          <p dangerouslySetInnerHTML={{
+            __html: `
+            • ${formatKeys(scheme.prevSong)} to previous song.
+          `}}></p>
         </>
       );
     }
