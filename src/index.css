@@ -55,7 +55,7 @@
   }
 
   50% {
-    transform: scale(1.05);
+    transform: scale(1);
   }
 }
 
@@ -174,7 +174,7 @@
   }
 
   50% {
-    transform: scale(1.03);
+    transform: scale(1);
   }
 }
 
@@ -226,7 +226,7 @@
   }
 
   50% {
-    transform: scaleY(1.05);
+    transform: scaleY(1);
   }
 }
 
