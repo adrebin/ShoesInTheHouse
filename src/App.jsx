@@ -109,20 +109,33 @@ const App = () => {
   };
 
   const goBack = () => {
-    if (isMultiLineMode) {
+    if (currentSectionIndex === -1) {
+      const prevSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+      const prevSong = songs[prevSongIndex];
+      const lastSectionIndex = prevSong.lyrics.length - 1;
+      const lastSection = prevSong.lyrics[lastSectionIndex];
+
+      setCurrentSongIndex(prevSongIndex);
+      setCurrentSectionIndex(lastSectionIndex);
+      setCurrentLineIndex(isMultiLineMode ? 0 : lastSection.lines.length - 1);
+    } else if (isMultiLineMode) {
       if (currentSectionIndex > 0) {
         setCurrentSectionIndex(prev => prev - 1);
         setCurrentLineIndex(0);
       } else {
         setCurrentSectionIndex(-1);
       }
-    } else {
+    } else { // Single-line mode
       if (currentLineIndex > 0) {
         setCurrentLineIndex(prev => prev - 1);
       } else if (currentSectionIndex > 0) {
+        // This is the new logic to go to the previous section
         setCurrentSectionIndex(prev => prev - 1);
         const prevSection = currentSong.lyrics[currentSectionIndex - 1];
         setCurrentLineIndex(prevSection.lines.length - 1);
+      } else {
+        // When at the first line of the first section, go back to the title page
+        setCurrentSectionIndex(-1);
       }
     }
   };
@@ -228,20 +241,20 @@ const App = () => {
   );
   const songTitleClass = "text-yellow-400 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]";
   const bandNameClass = "text-white text-opacity-80 mt-4 text-2xl sm:text-4xl md:text-5xl drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]";
-  const lyricsContainerClass = "flex flex-col items-center justify-center w-full max-w-7xl h-auto px-4 mt-8 scroll-smooth no-scrollbar";
+  const lyricsContainerClass = "flex flex-col items-center justify-center w-full max-w-7xl h-auto px-2 mt-8 scroll-smooth no-scrollbar";
 
   const lineClass = (index) => {
     const baseClasses = "text-center font-semibold my-4 transition-all duration-500 ease-in-out";
     if (isMultiLineMode) {
-      return twMerge(baseClasses, "text-2xl sm:text-3xl md:text-4xl");
+      return twMerge(baseClasses, "text-[50px]");
     } else {
       if (index === currentLineIndex) {
-        return twMerge(baseClasses, "text-xl sm:text-3xl md:text-4xl font-bold text-yellow-400 animate-pulse-once drop-shadow-[0_4px_8px_rgba(255,255,0,0.7)] transform scale-150 transform-origin-center");
+        return twMerge(baseClasses, "text-xl sm:text-3xl md:text-4xl font-bold text-yellow-400 animate-pulse-once drop-shadow-[0_4px_8px_rgba(0,0,0,0.7)] transform scale-150 transform-origin-center");
       }
       if (index < currentLineIndex) {
-        return twMerge(baseClasses, "text-lg sm:text-xl md:text-2xl text-white text-opacity-40");
+        return twMerge(baseClasses, "text-xl sm:text-3xl md:text-4xl text-white text-opacity-40");
       }
-      return twMerge(baseClasses, "text-lg sm:text-xl md:text-2xl text-white");
+      return twMerge(baseClasses, "text-xl sm:text-3xl md:text-4xl text-white");
     }
   };
 

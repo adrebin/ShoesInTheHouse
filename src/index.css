@@ -46,16 +46,16 @@
   }
 }
 
-/* 3. Subtle radial scale pulse */
+/* 3. Subtle radial scale pulse -- NOW a subtle horizontal slide */
 @keyframes pulse-bg-3 {
 
   0%,
   100% {
-    transform: scale(1);
+    background-position: 0% 50%;
   }
 
   50% {
-    transform: scale(1);
+    background-position: 100% 50%;
   }
 }
 
@@ -64,11 +64,11 @@
 
   0%,
   100% {
-    filter: hue-rotate(0deg);
+    background-position: 0% 50%;
   }
 
   50% {
-    filter: hue-rotate(180deg);
+    background-position: 100% 50%;
   }
 }
 
@@ -98,16 +98,16 @@
   }
 }
 
-/* 7. Rose pink scaling */
+/* 7. Rose pink scaling -- NOW a horizontal slide */
 @keyframes pulse-bg-7 {
 
   0%,
   100% {
-    background-size: 150% 150%;
+    background-position: 0% 50%;
   }
 
   50% {
-    background-size: 180% 180%;
+    background-position: 100% 50%;
   }
 }
 
@@ -130,12 +130,12 @@
   0%,
   100% {
     background-position: 0% 50%;
-    filter: hue-rotate(0deg);
+    /* filter: hue-rotate(0deg); */
   }
 
   50% {
     background-position: 100% 50%;
-    filter: hue-rotate(45deg);
+    /* filter: hue-rotate(45deg); */
   }
 }
 
@@ -165,29 +165,29 @@
   }
 }
 
-/* 12. Soft pink scale pulse */
+/* 12. Soft pink scale pulse -- NOW a horizontal slide */
 @keyframes pulse-bg-12 {
 
   0%,
   100% {
-    transform: scale(1);
+    background-position: 0% 50%;
   }
 
   50% {
-    transform: scale(1);
+    background-position: 100% 50%;
   }
 }
 
-/* 13. Sunny yellow radial scale */
+/* 13. Sunny yellow radial scale -- NOW a horizontal slide */
 @keyframes pulse-bg-13 {
 
   0%,
   100% {
-    background-size: 100% 100%;
+    background-position: 0% 50%;
   }
 
   50% {
-    background-size: 110% 110%;
+    background-position: 100% 50%;
   }
 }
 
@@ -217,16 +217,16 @@
   }
 }
 
-/* 16. Deep red vertical scale pulse */
+/* 16. Deep red vertical scale pulse -- NOW a horizontal slide */
 @keyframes pulse-bg-16 {
 
   0%,
   100% {
-    transform: scaleY(1);
+    background-position: 0% 50%;
   }
 
   50% {
-    transform: scaleY(1);
+    background-position: 100% 50%;
   }
 }
 
@@ -235,11 +235,11 @@
 
   0%,
   100% {
-    filter: grayscale(0%);
+    background-position: 0% 50%;
   }
 
   50% {
-    filter: grayscale(50%);
+    background-position: 100% 50%;
   }
 }
 
@@ -260,22 +260,25 @@
 }
 
 .animate-pulse-bg-3 {
-  animation: pulse-bg-3 22s ease infinite;
-  background: radial-gradient(circle at center, #7f5af0, #3c096c);
+  background-size: 200% 200%;
+  animation: pulse-bg-3 20s ease infinite;
+  background-image: linear-gradient(to right, #beabf5, #7617cf, #1700c4);
   color: white;
 }
 
 .animate-pulse-bg-4 {
-  animation: pulse-bg-4 30s ease infinite;
+  background-size: 200% 200%;
+  animation: pulse-bg-4 20s ease infinite;
   background-image: linear-gradient(135deg, #a020f0, #720026, #c71585);
   color: white;
 }
 
+
 .animate-pulse-bg-5 {
   background-size: 200% 200%;
   animation: pulse-bg-5 35s ease-in-out infinite alternate;
-  background-image: linear-gradient(45deg, #f6d365, #fda085, #f6d365);
-  color: #333;
+  background-image: linear-gradient(45deg, #007FFF, #00CFFF, #87CEEB);
+  color: white;
 }
 
 .animate-pulse-bg-6 {
@@ -286,10 +289,10 @@
 }
 
 .animate-pulse-bg-7 {
-  animation: pulse-bg-7 22s ease infinite;
-  background-size: 150% 150%;
-  background-image: linear-gradient(135deg, #ff758c, #ff7eb3, #ff758c);
-  color: #222;
+  background-size: 200% 200%;
+  animation: pulse-bg-7 15s ease infinite;
+  background-image: linear-gradient(to right, #f3687f, #fd5b9f, #f51137);
+  color: white;
 }
 
 .animate-pulse-bg-8 {
@@ -300,40 +303,42 @@
 }
 
 .animate-pulse-bg-9 {
-  background: linear-gradient(270deg, #a1c4fd, #c2e9fb, #a1c4fd, #c2e9fb);
+  background: linear-gradient(270deg, #85b2f9, #44b7ed, #7cacfa, #9cdaf6);
   background-size: 400% 400%;
   animation: smooth-wave 30s ease-in-out infinite;
-  color: #222;
+  color: white;
 }
 
 .animate-pulse-bg-10 {
   background-size: 150% 150%;
-  animation: pulse-bg-10 30s ease infinite alternate;
-  background-image: linear-gradient(to bottom, #113c5f, #072a44, #01152a);
+  animation: pulse-bg-10 15s ease infinite alternate;
+  background-image: linear-gradient(to bottom, #116bb4, #083150, #021e3c);
   color: white;
 }
 
 .animate-pulse-bg-11 {
   animation: pulse-bg-11 20s ease infinite alternate;
   background: radial-gradient(circle, #89cff0, #4682b4);
-  color: #222;
+  color: white;
 }
 
 .animate-pulse-bg-12 {
+  background-size: 200% 200%;
   animation: pulse-bg-12 25s ease-in-out infinite alternate;
   background-image: linear-gradient(45deg, #f7cac9, #f67280, #f7cac9);
-  color: #222;
+  color: white;
 }
 
 .animate-pulse-bg-13 {
+  background-size: 200% 200%;
   animation: pulse-bg-13 28s linear infinite alternate;
-  background: radial-gradient(circle, #f0e68c, #ffd700);
-  color: #333;
+  background: radial-gradient(circle, #26b2d9, #02b8b2);
+  color: white;
 }
 
 .animate-pulse-bg-14 {
   animation: pulse-bg-14 30s ease infinite alternate;
-  background: linear-gradient(to right, #455a64, #78909c);
+  background: linear-gradient(to right, #3546c9, #19107b);
   color: white;
 }
 
@@ -345,13 +350,15 @@
 }
 
 .animate-pulse-bg-16 {
-  animation: pulse-bg-16 22s ease infinite alternate;
-  background: radial-gradient(circle, #8b0000, #b22222);
+  background-size: 200% 200%;
+  animation: pulse-bg-16 20s ease infinite alternate;
+  background-image: linear-gradient(to left, #d62121, #690101, #d62121);
   color: white;
 }
 
 .animate-pulse-bg-17 {
-  animation: pulse-bg-17 28s linear infinite alternate;
-  background: linear-gradient(135deg, #2f4f4f, #5f9ea0);
+  background-size: 200% 200%;
+  animation: pulse-bg-3 20s ease infinite;
+  background-image: linear-gradient(135deg, #ee0979, #ff6a00, #1700c4);
   color: white;
 }

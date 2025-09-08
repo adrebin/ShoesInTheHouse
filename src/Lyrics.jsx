@@ -468,11 +468,11 @@ export const SONGS = [
             {
                 section: "section 1",
                 lines: [
-                    "(Ah, ooh) It's no surprise to me",
+                    "It's no surprise to me",
                     "I am my own worst enemy",
-                    "(Ah, ooh) 'Cause every now and then I kick the living shit out of me",
-                    "(Ah, ooh) Can we forget about the things I said when I was drunk?",
-                    "(Ah, ooh) I didn't mean to call you that"
+                    "'Cause every now and then I kick the living shit out of me",
+                    "Can we forget about the things I said when I was drunk?",
+                    "I didn't mean to call you that"
                 ],
             },
         ],
@@ -746,7 +746,7 @@ export const SONGS = [
                 lines: [
                     "Chances thrown",
                     "Nothing's free",
-                    "Longing for (what), used to be",
+                    "Longing for, used to be",
                     "Still it's hard, hard to see",
                     "Fragile lives",
                     "Shattered dreams"
@@ -875,9 +875,11 @@ export const SONGS = [
                 section: "section 1",
                 lines: [
                     "Hey, don't write yourself off yet",
-                    "It's only in your head you feel left out or looked down on",
+                    "It's only in your head you feel left out",
+                    "Or looked down on",
                     "Just try your best, try everything you can",
-                    "And don't you worry what they tell themselves when you're away",
+                    "And don't you worry what they tell themselves",
+                    "When you're away",
                 ],
             },
             {
@@ -893,9 +895,11 @@ export const SONGS = [
                 section: "section 1",
                 lines: [
                     "Hey, you know they're all the same",
-                    "You know you're doing better on your own (on your own), so don't buy in",
+                    "You know you're doing better on your own (on your own)",
+                    "So don't buy in",
                     "Live right now, yeah, just be yourself",
-                    "It doesn't matter if it's good enough (good enough) for someone else",
+                    "It doesn't matter if it's good enough (good enough)",
+                    "For someone else"
                 ],
             },
             {
@@ -924,9 +928,12 @@ export const SONGS = [
                 section: "section 1",
                 lines: [
                     "Hey, don't write yourself off yet",
-                    "It's only in your head you feel left out (feel left out) or looked down on",
-                    "Just do your best (just do your best), do everything you can (do everything you can)",
-                    "And don't you worry what the bitter hearts (bitter hearts) are gonna say",
+                    "It's only in your head you feel left out (feel left out)",
+                    "Or looked down on",
+                    "Just do your best (just do your best)",
+                    "Do everything you can (do everything you can)",
+                    "And don't you worry what the bitter hearts (bitter hearts)",
+                    "Are gonna say"
                 ],
             },
             {
@@ -1079,7 +1086,8 @@ export const SONGS = [
             {
                 section: "section 1",
                 lines: [
-                    "Well, I know I'm not the one you thought you knew back in high school",
+                    "Well, I know I'm not the one you thought you",
+                    "Knew back in high school",
                     "Never goin', never showin' up when we had to",
                     "Attention that we crave, don't tell us to behave",
                     "I'm sick of always hearin' \"act your age\"",
@@ -1097,7 +1105,8 @@ export const SONGS = [
             {
                 section: "section 1",
                 lines: [
-                    "Because you don't know us at all, we laugh when old people fall",
+                    "Because you don't know us at all",
+                    "We laugh when old people fall",
                     "But what would you expect with a conscience so small?",
                     "Heavy metal and mullets, it's how we were raised",
                     "Maiden and Priest were the gods that we praised",
@@ -1492,13 +1501,6 @@ export const SONGS = [
                 lines: [
                     "With the girl at the rock show",
                     "With the girl at the rock show",
-                ],
-            },
-            {
-                section: "section 1",
-                lines: [
-                    "(I'll never forget tonight) with the girl at the rock show",
-                    "(I'll never forget tonight) with the girl at the rock show",
                     "(I'll never forget tonight) with the girl at the rock show",
                     "(I'll never forget tonight) with the girl at the rock show",
                     "(I'll never forget tonight) with the girl at the rock show",
