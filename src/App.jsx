@@ -20,13 +20,25 @@ const CONTROL_SCHEMES = [
     prevSong: ['DoubleClickBack'],
   },
   {
-    name: "Arrow & Tab",
+    name: "Clicker",
     lineAdvance: ['ArrowUp', 'PageUp'],
     lineBack: ['ArrowDown', 'PageDown'],
     nextSong: ['Tab'],
     prevSong: ['ShiftTab'],
   },
+  {
+    name: "iPhone",
+    lineAdvance: ["Right Tap"],
+    lineBack: ["Left Tap"],
+    nextSong: ["Double Tap"],
+    prevSong: ["None"],
+  }
 ];
+
+// Helper function to detect if the user is on an iPhone
+const isIPhone = () => {
+  return /iPhone/i.test(navigator.userAgent);
+};
 
 const App = () => {
   const songs = SONGS;
@@ -34,7 +46,16 @@ const App = () => {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(-1);
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [isFadingOut, setIsFadingOut] = useState(false);
-  const [currentSchemeIndex, setCurrentSchemeIndex] = useState(0);
+
+  // Set the initial control scheme based on device detection
+  const [currentSchemeIndex, setCurrentSchemeIndex] = useState(() => {
+    if (isIPhone()) {
+      // Find the index of the iPhone scheme
+      return CONTROL_SCHEMES.findIndex(scheme => scheme.name === "iPhone");
+    }
+    return 0; // Default to Arrows scheme
+  });
+
   const [isMultiLineMode, setIsMultiLineMode] = useState(false);
   const lineRefs = useRef([]);
   const containerRef = useRef(null);
@@ -151,13 +172,34 @@ const App = () => {
 
   useEffect(() => {
     const handleKeyPress = (e) => {
+      // The old logic was: if (currentScheme.name === "iPhone") return;
+      // This prevented the 'c' key from working.
+
+      // We now handle the 'c' and 'm' keys first to allow scheme/mode switching
+      // on all devices, even when the 'iPhone' scheme is active.
+      if (e.key === 'c') {
+        e.preventDefault();
+        toggleControlScheme();
+        return;
+      }
+      if (e.key === 'm') {
+        e.preventDefault();
+        toggleMultiLineMode();
+        return;
+      }
+
+      // If the scheme is iPhone and it's not a control key, ignore other key presses
+      if (currentScheme.name === "iPhone") {
+        return;
+      }
+
       const allKeys = Object.values(CONTROL_SCHEMES).flatMap(scheme =>
         Object.values(scheme).flat()
       );
       if (e.key === 'Tab' || e.key === 'Shift') {
         e.preventDefault();
       }
-      if (allKeys.includes(e.key) || e.key === 'c' || e.key === 'm') {
+      if (allKeys.includes(e.key)) {
         e.preventDefault();
       }
 
@@ -169,10 +211,6 @@ const App = () => {
         navigateNextSong();
       } else if (currentScheme.prevSong.includes(e.key)) {
         navigatePrevSong();
-      } else if (e.key === 'c') {
-        toggleControlScheme();
-      } else if (e.key === 'm') {
-        toggleMultiLineMode();
       }
     };
     window.addEventListener('keydown', handleKeyPress);
@@ -209,6 +247,31 @@ const App = () => {
     return () => {
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('contextmenu', handleContextMenu);
+    };
+  }, [currentSectionIndex, currentLineIndex, currentSchemeIndex, isMultiLineMode, currentSongIndex, currentSong]);
+
+  useEffect(() => {
+    const handleTouchStart = (e) => {
+      e.preventDefault();
+      if (currentScheme.name === "iPhone") {
+        const touchX = e.touches[0].clientX;
+        const screenWidth = window.innerWidth;
+
+        if (e.touches.length === 1) {
+          if (touchX > screenWidth / 2) {
+            advance();
+          } else {
+            goBack();
+          }
+        } else if (e.touches.length === 2) {
+          navigateNextSong();
+        }
+      }
+    };
+
+    window.addEventListener('touchstart', handleTouchStart);
+    return () => {
+      window.removeEventListener('touchstart', handleTouchStart);
     };
   }, [currentSectionIndex, currentLineIndex, currentSchemeIndex, isMultiLineMode, currentSongIndex, currentSong]);
 
