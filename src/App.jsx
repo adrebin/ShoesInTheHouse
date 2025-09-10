@@ -84,7 +84,7 @@ const IntroPage = ({ backgroundImage, onStart }) => {
 };
 
 // Closing Page Component
-const OutroPage = ({ onRestart }) => {
+const OutroPage = ({ onRestart, onBack }) => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-900 text-white text-center p-4">
       <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold font-display text-yellow-400 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
@@ -102,6 +102,7 @@ const OutroPage = ({ onRestart }) => {
     </div>
   );
 };
+
 
 const App = () => {
   const songs = SONGS;
@@ -275,6 +276,25 @@ const App = () => {
   const toggleMultiLineMode = () => {
     setIsMultiLineMode(prev => !prev);
     setCurrentLineIndex(0);
+  };
+
+  const handleRestart = () => {
+    setPage('intro');
+    setCurrentSongIndex(0);
+    setCurrentSectionIndex(-1);
+    setCurrentLineIndex(0);
+  };
+
+  const handleGoBackFromOutro = () => {
+    const lastSongIndex = songs.length - 1;
+    const lastSong = songs[lastSongIndex];
+    const lastSectionIndex = lastSong.lyrics.length - 1;
+    const lastSection = lastSong.lyrics[lastSectionIndex];
+
+    setPage('app');
+    setCurrentSongIndex(lastSongIndex);
+    setCurrentSectionIndex(lastSectionIndex);
+    setCurrentLineIndex(isMultiLineMode ? 0 : lastSection.lines.length - 1);
   };
 
   useEffect(() => {
@@ -511,17 +531,7 @@ const App = () => {
   }
 
   if (page === 'outro') {
-    return <OutroPage onRestart={() => {
-      const lastSongIndex = songs.length - 1;
-      const lastSong = songs[lastSongIndex];
-      const lastSectionIndex = lastSong.lyrics.length - 1;
-      const lastSection = lastSong.lyrics[lastSectionIndex];
-
-      setPage('app');
-      setCurrentSongIndex(lastSongIndex);
-      setCurrentSectionIndex(lastSectionIndex);
-      setCurrentLineIndex(isMultiLineMode ? 0 : lastSection.lines.length - 1);
-    }} />;
+    return <OutroPage onRestart={handleRestart} onBack={handleGoBackFromOutro} />;
   }
 
   return (
