@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { SONGS } from './Lyrics';
 import { FaInfoCircle } from 'react-icons/fa';
+import headerBackground from './assets/header.jpeg';
 
 // Define the control schemes with multiple keys for each action
 const CONTROL_SCHEMES = [
@@ -40,12 +41,60 @@ const isIPhone = () => {
   return /iPhone/i.test(navigator.userAgent);
 };
 
+// Opening Page Component
+const IntroPage = ({ backgroundImage }) => {
+  return (
+    <div
+      className="flex flex-col items-center justify-start h-screen text-white text-center p-4 bg-gray-900"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <div className="p-8 rounded-lg mt-24">
+        <h1 className="text-8xl font-bold font-display text-green-600 drop-shadow-[0_6px_6px_rgba(0,0,0,0.7)]">
+          Don & Haley
+        </h1>
+        <h3 className="text-2xl font-bold font-display text-gray-600 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+          Saturday, September 13, 2025
+        </h3>
+        <h3 className="text-2xl font-bold font-display text-gray-600 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+          Fullerton, CA, USA
+        </h3>
+      </div>
+    </div>
+  );
+};
+
+// Closing Page Component
+const OutroPage = ({ onRestart }) => {
+  return (
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-900 text-white text-center p-4">
+      <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold font-display text-yellow-400 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+        End of Set
+      </h1>
+      <p className="mt-4 text-xl sm:text-2xl md:text-3xl text-white text-opacity-80 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
+        Thanks for using the teleprompter!
+      </p>
+      <button
+        onClick={onRestart}
+        className="mt-8 px-8 py-4 bg-yellow-400 text-gray-900 font-bold rounded-full text-lg shadow-lg hover:bg-yellow-500 transition-colors duration-200"
+      >
+        Restart
+      </button>
+    </div>
+  );
+};
+
 const App = () => {
   const songs = SONGS;
+  const [page, setPage] = useState('intro'); // 'intro', 'app', 'outro'
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [currentSectionIndex, setCurrentSectionIndex] = useState(-1);
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
-  const [isFadingOut, setIsFadingOut] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState(false); // State for all fade-outs
 
   // Set the initial control scheme based on device detection
   const [currentSchemeIndex, setCurrentSchemeIndex] = useState(() => {
@@ -86,17 +135,30 @@ const App = () => {
   const currentSection = currentSectionIndex >= 0 ? currentSong.lyrics[currentSectionIndex] : null;
 
   const navigateNextSong = () => {
-    const nextSongIndex = (currentSongIndex + 1) % songs.length;
-    setCurrentSongIndex(nextSongIndex);
-    setCurrentSectionIndex(-1);
-    setCurrentLineIndex(0);
+    setIsFadingOut(true);
+    const nextSongIndex = currentSongIndex + 1;
+    setTimeout(() => {
+      if (nextSongIndex >= songs.length) {
+        setPage('outro');
+        setCurrentSongIndex(0); // Reset for next time
+      } else {
+        setCurrentSongIndex(nextSongIndex);
+      }
+      setCurrentSectionIndex(-1);
+      setCurrentLineIndex(0);
+      setIsFadingOut(false);
+    }, 500);
   };
 
   const navigatePrevSong = () => {
+    setIsFadingOut(true);
     const prevSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-    setCurrentSongIndex(prevSongIndex);
-    setCurrentSectionIndex(-1);
-    setCurrentLineIndex(0);
+    setTimeout(() => {
+      setCurrentSongIndex(prevSongIndex);
+      setCurrentSectionIndex(-1);
+      setCurrentLineIndex(0);
+      setIsFadingOut(false);
+    }, 500);
   };
 
   const advance = () => {
@@ -130,21 +192,34 @@ const App = () => {
   };
 
   const goBack = () => {
-    if (currentSectionIndex === -1) {
-      const prevSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-      const prevSong = songs[prevSongIndex];
-      const lastSectionIndex = prevSong.lyrics.length - 1;
-      const lastSection = prevSong.lyrics[lastSectionIndex];
+    if (page === 'app' && currentSongIndex === 0 && currentSectionIndex === -1) {
+      setPage('intro');
+      return;
+    }
 
-      setCurrentSongIndex(prevSongIndex);
-      setCurrentSectionIndex(lastSectionIndex);
-      setCurrentLineIndex(isMultiLineMode ? 0 : lastSection.lines.length - 1);
+    if (currentSectionIndex === -1) {
+      setIsFadingOut(true);
+      setTimeout(() => {
+        const prevSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+        const prevSong = songs[prevSongIndex];
+        const lastSectionIndex = prevSong.lyrics.length - 1;
+        const lastSection = prevSong.lyrics[lastSectionIndex];
+
+        setCurrentSongIndex(prevSongIndex);
+        setCurrentSectionIndex(lastSectionIndex);
+        setCurrentLineIndex(isMultiLineMode ? 0 : lastSection.lines.length - 1);
+        setIsFadingOut(false);
+      }, 500);
     } else if (isMultiLineMode) {
       if (currentSectionIndex > 0) {
         setCurrentSectionIndex(prev => prev - 1);
         setCurrentLineIndex(0);
       } else {
-        setCurrentSectionIndex(-1);
+        setIsFadingOut(true);
+        setTimeout(() => {
+          setCurrentSectionIndex(-1);
+          setIsFadingOut(false);
+        }, 500);
       }
     } else { // Single-line mode
       if (currentLineIndex > 0) {
@@ -156,7 +231,11 @@ const App = () => {
         setCurrentLineIndex(prevSection.lines.length - 1);
       } else {
         // When at the first line of the first section, go back to the title page
-        setCurrentSectionIndex(-1);
+        setIsFadingOut(true);
+        setTimeout(() => {
+          setCurrentSectionIndex(-1);
+          setIsFadingOut(false);
+        }, 500);
       }
     }
   };
@@ -172,11 +251,6 @@ const App = () => {
 
   useEffect(() => {
     const handleKeyPress = (e) => {
-      // The old logic was: if (currentScheme.name === "iPhone") return;
-      // This prevented the 'c' key from working.
-
-      // We now handle the 'c' and 'm' keys first to allow scheme/mode switching
-      // on all devices, even when the 'iPhone' scheme is active.
       if (e.key === 'c') {
         e.preventDefault();
         toggleControlScheme();
@@ -188,7 +262,6 @@ const App = () => {
         return;
       }
 
-      // If the scheme is iPhone and it's not a control key, ignore other key presses
       if (currentScheme.name === "iPhone") {
         return;
       }
@@ -204,7 +277,11 @@ const App = () => {
       }
 
       if (currentScheme.lineAdvance.includes(e.key)) {
-        advance();
+        if (page === 'intro') {
+          setPage('app');
+        } else {
+          advance();
+        }
       } else if (currentScheme.lineBack.includes(e.key)) {
         goBack();
       } else if (currentScheme.nextSong.includes(e.key)) {
@@ -217,7 +294,7 @@ const App = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [currentSectionIndex, currentLineIndex, currentSchemeIndex, isMultiLineMode, currentSongIndex, currentSong]);
+  }, [currentSectionIndex, currentLineIndex, currentSchemeIndex, isMultiLineMode, currentSongIndex, currentSong, page]);
 
   useEffect(() => {
     const handleMouseDown = (e) => {
@@ -231,7 +308,11 @@ const App = () => {
           navigateNextSong();
           lastClickTimeRef.current = 0;
         } else {
-          advance();
+          if (page === 'intro') {
+            setPage('app');
+          } else {
+            advance();
+          }
           lastClickTimeRef.current = currentTime;
         }
       } else if (e.button === 2) {
@@ -248,7 +329,7 @@ const App = () => {
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('contextmenu', handleContextMenu);
     };
-  }, [currentSectionIndex, currentLineIndex, currentSchemeIndex, isMultiLineMode, currentSongIndex, currentSong]);
+  }, [currentSectionIndex, currentLineIndex, currentSchemeIndex, isMultiLineMode, currentSongIndex, currentSong, page]);
 
   useEffect(() => {
     const handleTouchStart = (e) => {
@@ -259,7 +340,11 @@ const App = () => {
 
         if (e.touches.length === 1) {
           if (touchX > screenWidth / 2) {
-            advance();
+            if (page === 'intro') {
+              setPage('app');
+            } else {
+              advance();
+            }
           } else {
             goBack();
           }
@@ -273,7 +358,7 @@ const App = () => {
     return () => {
       window.removeEventListener('touchstart', handleTouchStart);
     };
-  }, [currentSectionIndex, currentLineIndex, currentSchemeIndex, isMultiLineMode, currentSongIndex, currentSong]);
+  }, [currentSectionIndex, currentLineIndex, currentSchemeIndex, isMultiLineMode, currentSongIndex, currentSong, page]);
 
   useEffect(() => {
     if (currentSectionIndex >= 0 && currentSection && lineRefs.current.length > 0) {
@@ -298,9 +383,10 @@ const App = () => {
     "flex flex-col items-center justify-center h-screen bg-gray-900 text-white font-sans overflow-hidden transition-all duration-1000 ease-in-out bg-gradient-to-br relative",
     backgroundAnimations[currentSongIndex]
   );
+
   const titleContainerClass = twMerge(
     "text-center text-4xl sm:text-6xl md:text-8xl font-bold transition-opacity duration-1000 ease-in-out font-display",
-    currentSectionIndex === -1 && isFadingOut && 'animate-fade-out-quick'
+    isFadingOut ? 'opacity-0' : 'opacity-100'
   );
   const songTitleClass = "text-yellow-400 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]";
   const bandNameClass = "text-white text-opacity-80 mt-4 text-2xl sm:text-4xl md:text-5xl drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]";
@@ -378,10 +464,32 @@ const App = () => {
     }
   };
 
+  if (page === 'intro') {
+    return (<>
+      <IntroPage backgroundImage={headerBackground} />
+      <div className="absolute bottom-4 left-4 flex flex-col items-start group">
+        <div className="text-white text-opacity-50 group-hover:text-opacity-100 transition-opacity duration-200">
+          <FaInfoCircle size={24} />
+        </div>
+
+        <div
+          className="absolute bottom-full mb-4 w-64 p-4 rounded-lg bg-gray-800 bg-opacity-70 text-white text-opacity-80 text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100 pointer-events-none"
+        >
+          {getHelpText()}
+        </div>
+      </div>
+    </>);
+
+  }
+
+  if (page === 'outro') {
+    return <OutroPage onRestart={() => setPage('intro')} />;
+  }
+
   return (
     <div className={containerClass}>
       {currentSectionIndex === -1 ? (
-        <div id="title-screen" className={titleContainerClass}>
+        <div id="title-screen" className={twMerge(titleContainerClass, "flex flex-col justify-center h-screen w-full")}>
           <h1 className={songTitleClass}>{currentSong.title}</h1>
           <h2 className={bandNameClass}>by {currentSong.band}</h2>
         </div>
