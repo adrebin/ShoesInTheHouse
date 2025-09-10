@@ -42,10 +42,19 @@ const isIPhone = () => {
 };
 
 // Opening Page Component
-const IntroPage = ({ backgroundImage }) => {
+const IntroPage = ({ backgroundImage, onStart }) => {
+  const [isFadingOut, setIsFadingOut] = useState(false);
+
+  const handleStart = () => {
+    setIsFadingOut(true);
+    setTimeout(() => {
+      onStart();
+    }, 500);
+  };
+
   return (
     <div
-      className="flex flex-col items-center justify-start h-screen text-white text-center p-4 bg-gray-900"
+      className={`flex flex-col items-center justify-start h-screen text-white text-center p-4 bg-gray-900 transition-opacity duration-500 ease-out ${isFadingOut ? 'opacity-0' : 'opacity-100'}`}
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
@@ -64,6 +73,12 @@ const IntroPage = ({ backgroundImage }) => {
           Fullerton, CA, USA
         </h3>
       </div>
+      <button
+        onClick={handleStart}
+        className="mt-8 px-8 py-4 bg-yellow-400 text-gray-900 font-bold rounded-full text-lg shadow-lg hover:bg-yellow-500 transition-colors duration-200"
+      >
+        Let's Go!
+      </button>
     </div>
   );
 };
@@ -73,16 +88,16 @@ const OutroPage = ({ onRestart }) => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-900 text-white text-center p-4">
       <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold font-display text-yellow-400 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
-        End of Set
+        That's all folks!
       </h1>
       <p className="mt-4 text-xl sm:text-2xl md:text-3xl text-white text-opacity-80 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
-        Thanks for using the teleprompter!
+        Congrats to Don & Haley 💕
       </p>
       <button
         onClick={onRestart}
         className="mt-8 px-8 py-4 bg-yellow-400 text-gray-900 font-bold rounded-full text-lg shadow-lg hover:bg-yellow-500 transition-colors duration-200"
       >
-        Restart
+        (restart?)
       </button>
     </div>
   );
@@ -192,6 +207,19 @@ const App = () => {
   };
 
   const goBack = () => {
+    if (page === 'outro') {
+      const lastSongIndex = songs.length - 1;
+      const lastSong = songs[lastSongIndex];
+      const lastSectionIndex = lastSong.lyrics.length - 1;
+      const lastSection = lastSong.lyrics[lastSectionIndex];
+
+      setPage('app');
+      setCurrentSongIndex(lastSongIndex);
+      setCurrentSectionIndex(lastSectionIndex);
+      setCurrentLineIndex(isMultiLineMode ? 0 : lastSection.lines.length - 1);
+      return;
+    }
+
     if (page === 'app' && currentSongIndex === 0 && currentSectionIndex === -1) {
       setPage('intro');
       return;
@@ -466,7 +494,7 @@ const App = () => {
 
   if (page === 'intro') {
     return (<>
-      <IntroPage backgroundImage={headerBackground} />
+      <IntroPage backgroundImage={headerBackground} onStart={() => setPage('app')} />
       <div className="absolute bottom-4 left-4 flex flex-col items-start group">
         <div className="text-white text-opacity-50 group-hover:text-opacity-100 transition-opacity duration-200">
           <FaInfoCircle size={24} />
@@ -483,7 +511,17 @@ const App = () => {
   }
 
   if (page === 'outro') {
-    return <OutroPage onRestart={() => setPage('intro')} />;
+    return <OutroPage onRestart={() => {
+      const lastSongIndex = songs.length - 1;
+      const lastSong = songs[lastSongIndex];
+      const lastSectionIndex = lastSong.lyrics.length - 1;
+      const lastSection = lastSong.lyrics[lastSectionIndex];
+
+      setPage('app');
+      setCurrentSongIndex(lastSongIndex);
+      setCurrentSectionIndex(lastSectionIndex);
+      setCurrentLineIndex(isMultiLineMode ? 0 : lastSection.lines.length - 1);
+    }} />;
   }
 
   return (
