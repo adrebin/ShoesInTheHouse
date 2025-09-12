@@ -5,7 +5,6 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
                 lines: [
                     "Breathe in for luck, breathe in so deep",
                     "This air is blessed, you share with me",
@@ -16,7 +15,6 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "My hopes are so high that your kiss might kill me",
                     "So won't you kill me, so I die happy?",
@@ -24,7 +22,6 @@ export const SONGS = [
                     "Or wear as jewelry, whichever you prefer",],
             },
             {
-                section: "section 1",
                 lines: [
                     "The words are hushed, let's not get busted",
                     "Just lay entwined here, undiscovered",
@@ -34,7 +31,6 @@ export const SONGS = [
                     "So we can get some",],
             },
             {
-                section: "section 1",
                 lines: [
                     "My hopes are so high that your kiss might kill me",
                     "So won't you kill me, so I die happy?",
@@ -42,7 +38,6 @@ export const SONGS = [
                     "Or wear as jewelry, whichever you prefer",],
             },
             {
-                section: "section 1",
                 lines: [
                     "Hands down, this is the best day I can",
                     "Ever remember, I'll always remember the sound",
@@ -52,7 +47,6 @@ export const SONGS = [
                     "And this walk that we shared together",],
             },
             {
-                section: "section 1",
                 lines: [
                     "The streets were wet, and the gate was locked",
                     "So I jumped it and I let you in",
@@ -69,7 +63,6 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
                 lines: [
                     "Do you have the time to listen to me whine?",
                     "About nothing and everything, all at once",
@@ -77,7 +70,6 @@ export const SONGS = [
                     "Neurotic to the bone, no doubt about it",],
             },
             {
-                section: "section 1",
                 lines: [
                     "Sometimes I give myself the creeps",
                     "Sometimes my mind plays tricks on me",
@@ -86,14 +78,12 @@ export const SONGS = [
                     "Am I just paranoid or am I just stoned?",
                 ],
             }, {
-                section: "section 1",
                 lines: [
                     "I went to a shrink, to analyze my dreams",
                     "She said it's lack of sex that's bringing me down",
                     "I went to a whore, he said my life's a bore",
                     "So quit my whining 'cause it's bringing her down",],
             }, {
-                section: "section 1",
                 lines: [
                     "Sometimes I give myself the creeps",
                     "Sometimes my mind plays tricks on me",
@@ -102,12 +92,10 @@ export const SONGS = [
                     "Am I just paranoid?",
                     "I don't know",],
             }, {
-                section: "section 1",
                 lines: [
                     "Grasping to control",
                     "So I better hold on",],
             }, {
-                section: "section 1",
                 lines: [
                     "Sometimes I give myself the creeps",
                     "Sometimes my mind plays tricks on me",
@@ -125,14 +113,12 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
                 lines: [
                     "Coming out of my cage and I've been doing just fine",
                     "Gotta, gotta be down, because I want it all",
                     "It started out with a kiss, how did it end up like this?",
                     "It was only a kiss, it was only a kiss",],
             }, {
-                section: "section 1",
                 lines: [
                     "Now I'm falling asleep and she's calling a cab",
                     "While he's having a smoke and she's taking a drag",
@@ -140,14 +126,12 @@ export const SONGS = [
                     "And it's all in my head, but she's touching his",],
             },
             {
-                section: "section 1",
                 lines: [
                     "Chest now, he takes off her",
                     "Dress now, let me go",
                     "And I just can't look, it's killing me",
                     "They're taking control",],
             }, {
-                section: "section 1",
                 lines: [
                     "Jealousy, turning saints into the sea",
                     "Swimming through sick lullabies, choking on your alibis",
@@ -155,7 +139,6 @@ export const SONGS = [
                     "Open up my eager eyes, 'cause I'm Mr. Brightside",],
             },
             {
-                section: "section 1",
                 lines: [
                     "I'm coming out of my cage and I've been doing just fine",
                     "Gotta, gotta be down, because I want it all",
@@ -163,7 +146,6 @@ export const SONGS = [
                     "It was only a kiss, it was only a kiss",
                 ],
             }, {
-                section: "section 1",
                 lines: [
                     "Now I'm falling asleep and she's calling a cab",
                     "While he's having a smoke and she's taking a drag",
@@ -172,14 +154,12 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "Chest now, he takes off her",
                     "Dress now, let me go",
                     "'Cause I just can't look, it's killing me",
                     "They're taking control",],
             }, {
-                section: "section 1",
                 lines: [
                     "Jealousy, turning saints into the sea",
                     "Swimming through sick lullabies, choking on your alibis",
@@ -187,12 +167,11 @@ export const SONGS = [
                     "Open up my eager eyes, 'cause I'm Mr. Brightside",],
             },
             {
-                section: "section 1",
                 lines: [
                     "I never...",
                     "I never...",
                     "I never...",
-                    "I never...",],
+                    "I never..."],
             },
         ],
     },
@@ -202,7 +181,6 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
                 lines: [
                     "Go ahead as you waste your days with thinking",
                     "When you fall, everyone stands",
@@ -212,7 +190,6 @@ export const SONGS = [
                     "These hands are meant to hold (speak to me)",],
             },
             {
-                section: "section 1",
                 lines: [
                     "When all you got to keep is strong",
                     "Move along, move along like I know ya do",
@@ -223,7 +200,6 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "So a day when you've lost yourself completely",
                     "Could be a night when your life ends",
@@ -233,7 +209,6 @@ export const SONGS = [
                     "Your hands are mine to hold (speak to me)",],
             },
             {
-                section: "section 1",
                 lines: [
                     "When all you got to keep is strong",
                     "Move along, move along like I know ya do",
@@ -244,7 +219,6 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "When everything is wrong, we move along",
                     "(Go on, go on, go on, go on)",
@@ -255,7 +229,6 @@ export const SONGS = [
                     "Along (along)",],
             },
             {
-                section: "section 1",
                 lines: [
                     "When all you got to keep is strong",
                     "Move along, move along like I know you do",
@@ -264,7 +237,6 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "When all you gotta keep is strong",
                     "Move along, move along like I know you do (I know you do)",
@@ -273,7 +245,6 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "When all you gotta keep is strong",
                     "Move along, move along like I know you do (I know you do)",
@@ -283,7 +254,6 @@ export const SONGS = [
                     "(Go on, go on, go on, go on)",
                 ],
             }, {
-                section: "section 1",
                 lines: [
                     "Right back what is wrong, we move along",
                     "(Go on, go on, go on, go on)",
@@ -302,14 +272,12 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
                 lines: [
                     "Somebody once told me the world is gonna roll me",
                     "I ain't the sharpest tool in the shed",
                     "She was looking kind of dumb with her finger and her thumb",
                     "In the shape of an \"L\" on her forehead",],
             }, {
-                section: "section 1",
                 lines: [
                     "Well, the years start comin' and they don't stop comin'",
                     "Fed to the rules and I hit the ground runnin'",
@@ -317,14 +285,13 @@ export const SONGS = [
                     "Your brain gets smart, but your head gets dumb",
                 ],
             }, {
-                section: "section 1",
+
                 lines: [
                     "So much to do, so much to see",
                     "So, what's wrong with taking the backstreets?",
                     "You'll never know if you don't go (go)",
                     "You'll never shine if you don't glow",],
             }, {
-                section: "section 1",
                 lines: [
                     "Hey now, you're an all-star",
                     "Get your game on, go play",
@@ -333,7 +300,6 @@ export const SONGS = [
                     "(And all that glitters is gold)",
                     "Only shootin' stars break the mold",],
             }, {
-                section: "section 1",
                 lines: [
                     "It's a cool place, and they say it gets colder",
                     "You're bundled up now, wait 'til you get older",
@@ -341,7 +307,6 @@ export const SONGS = [
                     "Judging by the hole in the satellite picture",
                 ],
             }, {
-                section: "section 1",
                 lines: [
                     "The ice we skate is gettin' pretty thin",
                     "The water's gettin' warm, so you might as well swim",
@@ -349,7 +314,6 @@ export const SONGS = [
                     "That's the way I like it, and I'll never get bored",
                 ],
             }, {
-                section: "section 1",
                 lines: [
                     "Hey now, you're an all-star",
                     "Get your game on, go play",
@@ -359,10 +323,8 @@ export const SONGS = [
                     "Only shootin' stars break the mold",
                 ],
             }, {
-                section: "section 1",
                 lines: ["[Interlude]",],
             }, {
-                section: "section 1",
                 lines: [
                     "Hey now, you're an all-star",
                     "Get your game on, go play",
@@ -372,7 +334,6 @@ export const SONGS = [
                     "Only shooting stars",
                 ],
             }, {
-                section: "section 1",
                 lines: [
                     "Somebody once asked, \"Could I spare some change for gas?",
                     "I need to get myself away from this place\"",
@@ -380,7 +341,6 @@ export const SONGS = [
                     "And we could all use a little change\"",
                 ],
             }, {
-                section: "section 1",
                 lines: [
                     "Well, the years start comin' and they don't stop comin'",
                     "Fed to the rules and I hit the ground runnin'",
@@ -388,7 +348,6 @@ export const SONGS = [
                     "Your brain gets smart, but your head gets dumb",
                 ],
             }, {
-                section: "section 1",
                 lines: [
                     "So much to do, so much to see",
                     "So, what's wrong with taking the backstreets?",
@@ -396,7 +355,6 @@ export const SONGS = [
                     "You'll never shine if you don't glow",
                 ],
             }, {
-                section: "section 1",
                 lines: [
                     "Hey now, you're an all-star",
                     "Get your game on, go play",
@@ -405,7 +363,6 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "(And all that glitters is gold)",
                     "Only shootin' stars break the mold",
@@ -421,7 +378,6 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
                 lines: [
                     "Can we forget about the things I said when I was drunk?",
                     "I didn't mean to call you that",
@@ -430,7 +386,6 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "Please tell me why my car is in the front yard,",
                     "And I'm sleeping with my clothes on",
@@ -439,7 +394,6 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "It's no surprise to me",
                     "I am my own worst enemy",
@@ -449,7 +403,6 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "Please tell me why my car is in the front yard",
                     "And I'm sleeping with my clothes on",
@@ -458,7 +411,6 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "Please tell me why my car is in the front yard",
                     "And I'm sleeping with my clothes on",
@@ -466,7 +418,6 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "It's no surprise to me",
                     "I am my own worst enemy",
@@ -483,7 +434,6 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
                 lines: [
                     "Let me know that I've done wrong",
                     "When I've known this all along",
@@ -492,7 +442,6 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "Tell me all that you've thrown away",
                     "Find out games you don't wanna play",
@@ -501,7 +450,6 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "I'll keep you my dirty little secret (Dirty little secret)",
                     "Don't tell anyone or you'll be just another regret",
@@ -510,7 +458,6 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "When we live such fragile lives",
                     "It's the best way we survive",
@@ -519,7 +466,6 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "Tell me all that you've thrown away",
                     "Find out games you don't wanna play",
@@ -528,7 +474,6 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
                 lines: [
                     "I'll keep you my dirty little secret (Dirty little secret)",
                     "Don't tell anyone or you'll be just another regret",
@@ -537,7 +482,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "The way she feels inside (Inside)",
                     "Those thoughts I can't deny (Deny)",
@@ -548,7 +493,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "I'll keep you my dirty little secret (Dirty little secret)",
                     "Don't tell anyone or you'll be just another regret",
@@ -556,7 +501,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "I'll keep you my dirty little secret (Dirty little secret)",
                     "Don't tell anyone or you'll be just another regret",
@@ -573,7 +518,7 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
+
                 lines: [
                     "It's alright to tell me",
                     "What you think about me",
@@ -581,7 +526,7 @@ export const SONGS = [
                     "Or hold it against you",],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "I know that you're leaving",
                     "You must have your reasons",
@@ -590,7 +535,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "The steps that I retrace",
                     "The sad look on your face",
@@ -599,7 +544,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "A day late, a buck short",
                     "I'm writing the report",
@@ -608,7 +553,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "And it's happened once again",
                     "I'll turn to a friend",
@@ -617,7 +562,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "But everybody's gone",
                     "And I've been here for too long",
@@ -627,7 +572,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "And maybe I'll see you",
                     "At a movie sneak preview",
@@ -636,7 +581,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "And I'll smile and you'll wave",
                     "We'll pretend it's okay",
@@ -645,7 +590,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "And it'll happen once again",
                     "You'll turn to a friend",
@@ -654,7 +599,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "But everybody's gone",
                     "And you've been here for too long",
@@ -663,10 +608,10 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: ["[Interlude...]"],
             }, {
-                section: "section 1",
+
                 lines: [
                     "Well, I guess this is growing up",
                     "Well, I guess this is growing up",
@@ -683,7 +628,7 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
+
                 lines: [
                     "When we were young, the future was so bright (Woah-oh)",
                     "The old neighborhood was so alive (Woah-oh)",
@@ -691,14 +636,14 @@ export const SONGS = [
                     "Was gonna make it big and not be beat",
                 ],
             }, {
-                section: "section 1",
+
                 lines: [
                     "Now the neighborhood's cracked and torn (Woah-oh)",
                     "The kids are grown up, but their lives are worn (Woah-oh)",
                     "How can one little street swallow so many lives?",
                 ],
             }, {
-                section: "section 1",
+
                 lines: [
                     "Chances thrown",
                     "Nothing's free",
@@ -709,10 +654,10 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: ["[Interlude...]"],
             }, {
-                section: "section 1",
+
                 lines: [
                     "Jamie had a chance, well, she really did (Woah-oh)",
                     "Instead she dropped out and had a couple of kids (Woah-oh)",
@@ -720,7 +665,7 @@ export const SONGS = [
                     "He just plays guitar and smokes a lot of pot",
                 ],
             }, {
-                section: "section 1",
+
                 lines: [
                     "Jay commited suicide (Woah-oh)",
                     "Brandon OD'd and died (Woah-oh)",
@@ -729,7 +674,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Chances thrown",
                     "Nothing's free",
@@ -739,10 +684,10 @@ export const SONGS = [
                     "Shattered dreams (Go!)",
                 ],
             }, {
-                section: "section 1",
+
                 lines: ["[Guitar Solo...]"],
             }, {
-                section: "section 1",
+
                 lines: [
                     "Chances thrown",
                     "Nothing's free",
@@ -760,7 +705,7 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
+
                 lines: [
                     "Am I more than you bargained for yet?",
                     "I've been dying to tell you anything you wanna hear",
@@ -770,7 +715,7 @@ export const SONGS = [
                     "(Notch in your bedpost, but you're just a line in a song)",
                 ],
             }, {
-                section: "section 1",
+
                 lines: [
                     "Drop a heart",
                     "And break a name",
@@ -778,7 +723,7 @@ export const SONGS = [
                     "For the wrong team",
                 ],
             }, {
-                section: "section 1",
+
                 lines: [
                     "We're going down, down in an earlier round",
                     "And sugar, we're going down swinging",
@@ -786,7 +731,7 @@ export const SONGS = [
                     "A loaded god complex, cock it and pull it",
                 ],
             }, {
-                section: "section 1",
+
                 lines: [
                     "We're going down, down in an earlier round",
                     "And sugar, we're going down swinging",
@@ -794,10 +739,10 @@ export const SONGS = [
                     "A loaded god complex, cock it and pull it",
                 ],
             }, {
-                section: "section 1",
+
                 lines: ["[Interlude...]"],
             }, {
-                section: "section 1",
+
                 lines: [
                     "Is this more than you bargained for yet?",
                     "Oh, don't mind me, I'm watching you two from the closet",
@@ -807,7 +752,7 @@ export const SONGS = [
                     "(Notch in your bedpost, but you're just a line in a song)",
                 ],
             }, {
-                section: "section 1",
+
                 lines: [
                     "Drop a heart",
                     "And break a name",
@@ -815,7 +760,7 @@ export const SONGS = [
                     "For the wrong team",
                 ],
             }, {
-                section: "section 1",
+
                 lines: [
                     "We're going down, down in an earlier round",
                     "And sugar, we're going down swinging",
@@ -823,7 +768,7 @@ export const SONGS = [
                     "A loaded god complex, cock it and pull it",
                 ],
             }, {
-                section: "section 1",
+
                 lines: [
                     "We're going down, down in an earlier round",
                     "And sugar, we're going down swinging",
@@ -831,7 +776,7 @@ export const SONGS = [
                     "A loaded god complex, cock it and pull it",
                 ],
             }, {
-                section: "section 1",
+
                 lines: [
                     "Down, down in an earlier round",
                     "And sugar, we're going down swinging",
@@ -839,7 +784,7 @@ export const SONGS = [
                     "A loaded god complex, cock it and pull it",
                 ],
             }, {
-                section: "section 1",
+
                 lines: [
                     "We're going down, down in an earlier round (take aim at myself)",
                     "And sugar, we're going down swinging (take back what you said)",
@@ -847,7 +792,7 @@ export const SONGS = [
                     "A loaded god complex, cock it and pull it",
                 ],
             }, {
-                section: "section 1",
+
                 lines: [
                     "We're going down, down (down, down)",
                     "Down, down (down, down)",
@@ -856,7 +801,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "We're going down, down in an earlier round (take aim at myself)",
                     "And sugar, we're going down swinging (take back what you said)",
@@ -872,7 +817,7 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
+
                 lines: [
                     "Hey, don't write yourself off yet",
                     "It's only in your head you feel left out",
@@ -883,7 +828,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "It just takes some time",
                     "Little girl, you're in the middle of the ride",
@@ -892,7 +837,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Hey, you know they're all the same",
                     "You know you're doing better on your own (on your own)",
@@ -903,7 +848,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "It just takes some time",
                     "Little girl, you're in the middle of the ride",
@@ -912,7 +857,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "It just takes some time",
                     "Little girl, you're in the middle of the ride",
@@ -921,11 +866,11 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: ["[Guitar Solo...]"],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Hey, don't write yourself off yet",
                     "It's only in your head you feel left out (feel left out)",
@@ -937,7 +882,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "It just takes some time",
                     "Little girl, you're in the middle of the ride",
@@ -946,7 +891,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "It just takes some time",
                     "Little girl, you're in the middle of the ride",
@@ -962,7 +907,7 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
+
                 lines: [
                     "Can't count the years on one hand",
                     "That we've been together",
@@ -971,7 +916,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "It's not a walk in the park",
                     "To love each other",
@@ -981,7 +926,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "I should be over all the butterflies",
                     "But I'm into you (I'm into you)",
@@ -990,7 +935,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Let 'em wonder how we got this far",
                     "'Cause I don't really need to wonder at all",
@@ -998,7 +943,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Recount the night that",
                     "I first met your mother",
@@ -1007,7 +952,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "You felt the weight of the world",
                     "Fall off your shoulder",
@@ -1017,7 +962,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "I should be over all the butterflies",
                     "But I'm into you (I'm into you)",
@@ -1026,7 +971,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Let 'em wonder how we got this far",
                     "'Cause I don't really need to wonder at all",
@@ -1034,11 +979,11 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: ["[Interlude...]"],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Well, some things just, some things just make sense",
                     "And one of those is you and I (Hey)",
@@ -1049,7 +994,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "I should be over all the butterflies",
                     "But I'm into you (I'm into you)",
@@ -1058,7 +1003,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Let 'em wonder how we got this far",
                     "'Cause I don't really need to wonder at all",
@@ -1075,7 +1020,7 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
+
                 lines: [
                     "Stormin' through the party like my name was El Niño",
                     "When I'm hangin' out, drinkin' in the back of an El Camino",
@@ -1084,7 +1029,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Well, I know I'm not the one you thought you",
                     "Knew back in high school",
@@ -1094,7 +1039,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "I don't wanna waste my time",
                     "Become another casualty of society",
@@ -1103,7 +1048,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Because you don't know us at all",
                     "We laugh when old people fall",
@@ -1113,7 +1058,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "'Cause we like havin' fun at other people's expense, and",
                     "Cuttin' people down is just a minor offense, then",
@@ -1122,7 +1067,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "I don't wanna waste my time",
                     "Become another casualty of society",
@@ -1131,7 +1076,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Don't count on me to let you know when",
                     "Don't count on me, I'll do it again",
@@ -1140,7 +1085,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Well, I'm a no-goodnik, lower-middle-class brat",
                     "Backpacked, and I don't give a shit about nothin'",
@@ -1149,7 +1094,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "'Cause if the egg don't stain, you'll be ringin' off the hook",
                     "You're on the hit list, wanted in the telephone book",
@@ -1158,7 +1103,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "I don't wanna waste my time",
                     "Become another casualty of society",
@@ -1167,7 +1112,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Waste my time with them",
                     "Casualty of society",
@@ -1183,7 +1128,7 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
+
                 lines: [
                     "He was a boy",
                     "She was a girl",
@@ -1194,7 +1139,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "He wanted her",
                     "She'd never tell",
@@ -1205,7 +1150,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "He was a skater boy",
                     "She said, \"See you later, boy\"",
@@ -1216,7 +1161,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Five years from now",
                     "She sits at home",
@@ -1227,7 +1172,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "She calls up her friends",
                     "They already know",
@@ -1238,7 +1183,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "He was a skater boy",
                     "She said, \"See you later, boy\"",
@@ -1249,7 +1194,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "He was a skater boy",
                     "She said, \"See you later, boy\"",
@@ -1260,11 +1205,11 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: ["[Interlude...]"],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Sorry, girl, but you missed out",
                     "Well, tough, luck that boy's mine now",
@@ -1273,7 +1218,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Too bad that you couldn't see",
                     "See the man that boy could be",
@@ -1282,7 +1227,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "He's just a boy",
                     "And I'm just a girl",
@@ -1293,7 +1238,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "I'm with the skater boy",
                     "I said, \"See you later, boy\"",
@@ -1304,7 +1249,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "I'm with the skater boy",
                     "I said, \"See you later, boy\"",
@@ -1323,7 +1268,7 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
+
                 lines: [
                     "Broken this fragile thing now",
                     "And I can't, I can't pick up the pieces",
@@ -1332,7 +1277,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "I feel so broken up (so broken up)",
                     "And I give up (I give up)",
@@ -1340,7 +1285,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Here I go",
                     "Scream my lungs out and try to get to you",
@@ -1351,7 +1296,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "I made my mistakes, let you down",
                     "And I can't, I can't hold on for too long",
@@ -1360,7 +1305,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "And something's breakin' up (breakin' up)",
                     "I feel like givin' up (like givin' up)",
@@ -1368,7 +1313,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Here I go",
                     "Scream my lungs out and try to get to you",
@@ -1379,11 +1324,11 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: ["[Guitar Solo...]"],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Here I go",
                     "So dishonestly",
@@ -1392,7 +1337,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "And I know",
                     "You can see right through me",
@@ -1401,7 +1346,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Here I go",
                     "Scream my lungs out and try to get to you",
@@ -1412,7 +1357,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "My only one",
                     "My only one",
@@ -1428,7 +1373,7 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
+
                 lines: [
                     "Hanging out behind the club on the weekends",
                     "Acting stupid, getting drunk with my best friends",
@@ -1437,7 +1382,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "She's getting kicked out of school 'cause she's failing",
                     "I'm kinda nervous, 'cause I think all her friends hate me",
@@ -1446,7 +1391,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Because I fell in love with the girl at the rock show",
                     "She said, \"What?\", and I told her that I didn't know",
@@ -1457,7 +1402,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "When we said we were gonna move to Vegas",
                     "I remember the look her mother gave us",
@@ -1466,7 +1411,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "I fell in love with the girl at the rock show",
                     "She said, \"What?\" and I told her that I didn't know",
@@ -1477,7 +1422,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Black and white picture of her on my wall",
                     "I waited for her call, she always kept me waiting",
@@ -1486,7 +1431,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "I fell in love with the girl at the rock show",
                     "She said, \"What?\", and I told her that I didn't know",
@@ -1497,7 +1442,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "With the girl at the rock show",
                     "With the girl at the rock show",
@@ -1515,7 +1460,7 @@ export const SONGS = [
         avgLineDuration: 3000,
         lyrics: [
             {
-                section: "section 1",
+
                 lines: [
                     "In the car, I just can't wait",
                     "To pick you up on our very first date",
@@ -1524,7 +1469,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Do you like my stupid hair?",
                     "Would you guess that I didn't know what to wear?",
@@ -1533,7 +1478,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Let's go, don't wait",
                     "This night's almost over",
@@ -1542,7 +1487,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Forever and ever",
                     "Let's make this last forever",
@@ -1551,11 +1496,11 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: ["[Interlude...]"],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "When you smile, I melt inside",
                     "I'm not worthy for a minute of your time",
@@ -1564,7 +1509,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Please don't look at me with those eyes",
                     "Please, don't hint that you're capable of lies",
@@ -1573,7 +1518,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Let's go, don't wait",
                     "This night's almost over",
@@ -1582,7 +1527,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Forever and ever",
                     "Let's make this last forever",
@@ -1590,11 +1535,11 @@ export const SONGS = [
                     "Let's make this last forever",],
             },
             {
-                section: "section 1",
+
                 lines: ["[Interlude...]"],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Let's go, don't wait",
                     "This night's almost over",
@@ -1603,7 +1548,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Forever and ever",
                     "Let's make this last forever",
@@ -1612,7 +1557,7 @@ export const SONGS = [
                 ],
             },
             {
-                section: "section 1",
+
                 lines: [
                     "Forever and ever",
                     "Let's make this last forever",

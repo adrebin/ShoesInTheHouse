@@ -62,14 +62,14 @@ const IntroPage = ({ backgroundImage, onStart }) => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="p-8 rounded-lg mt-24">
+      <div className="p-8 rounded-lg mt-16">
         <h1 className="text-8xl font-bold font-display text-green-600 drop-shadow-[0_6px_6px_rgba(0,0,0,0.7)]">
           Don & Haley
         </h1>
-        <h3 className="text-2xl font-bold font-display text-gray-600 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+        <h3 className="text-3xl font-bold font-display text-gray-600 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
           Saturday, September 13, 2025
         </h3>
-        <h3 className="text-2xl font-bold font-display text-gray-600 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+        <h3 className="text-3xl font-bold font-display text-gray-600 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
           Fullerton, CA, USA
         </h3>
       </div>
