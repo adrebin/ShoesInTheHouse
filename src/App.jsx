@@ -7,6 +7,13 @@ import headerBackground from './assets/header.jpeg';
 // Define the control schemes with multiple keys for each action
 const CONTROL_SCHEMES = [
   {
+    name: "Clicker",
+    lineAdvance: ['ArrowUp', 'PageUp'],
+    lineBack: ['ArrowDown', 'PageDown'],
+    nextSong: ['Tab'],
+    prevSong: ['ShiftTab'],
+  },
+  {
     name: "Arrows",
     lineAdvance: ['ArrowRight'],
     lineBack: ['ArrowLeft'],
@@ -19,13 +26,6 @@ const CONTROL_SCHEMES = [
     lineBack: ['RightClick'],
     nextSong: ['DoubleClick'],
     prevSong: ['DoubleClickBack'],
-  },
-  {
-    name: "Clicker",
-    lineAdvance: ['ArrowUp', 'PageUp'],
-    lineBack: ['ArrowDown', 'PageDown'],
-    nextSong: ['Tab'],
-    prevSong: ['ShiftTab'],
   },
   {
     name: "iPhone",
@@ -90,15 +90,58 @@ const OutroPage = ({ onRestart, onBack }) => {
       <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold font-display text-yellow-400 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
         That's all folks!
       </h1>
-      <p className="mt-4 text-xl sm:text-2xl md:text-3xl text-white text-opacity-80 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
+      <p className="mt-4 text-3xl sm:text-2xl md:text-3xl text-white text-opacity-80 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
         Congrats to Don & Haley 💕
       </p>
-      <button
-        onClick={onRestart}
-        className="mt-8 px-8 py-4 bg-yellow-400 text-gray-900 font-bold rounded-full text-lg shadow-lg hover:bg-yellow-500 transition-colors duration-200"
-      >
-        (restart?)
-      </button>
+    </div>
+  );
+};
+
+// Table of Contents Component
+const TableOfContents = ({ songs, currentSongIndex, onSongSelect }) => {
+  const listRef = useRef(null);
+
+  // Calculate the end index for the slice to show current + next 3 songs
+  const endIndex = Math.min(currentSongIndex + 4, songs.length);
+  // Slice the songs array to only show the relevant songs
+  const visibleSongs = songs.slice(currentSongIndex, endIndex);
+
+  useEffect(() => {
+    if (listRef.current) {
+      const currentItem = listRef.current.querySelector(`.bg-yellow-400`);
+      if (currentItem) {
+        currentItem.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }
+    }
+  }, [currentSongIndex]);
+
+  return (
+    <div className="absolute bottom-0 left-0 right-0 h-28 bg-gray-900 bg-opacity-70 p-4 z-10">
+      <hr className="w-1/2 mx-auto border-t-2 border-yellow-400 mb-2" />
+      <ul ref={listRef} className="flex overflow-x-auto space-x-4 w-full no-scrollbar justify-center items-center">
+        {visibleSongs.map((song, index) => {
+          // Adjust the index to be relative to the full song list for styling
+          const actualIndex = currentSongIndex + index;
+          return (
+            <li
+              key={actualIndex}
+              className={twMerge(
+                "p-2 rounded-lg cursor-pointer transition-colors duration-200 flex-shrink-0",
+                actualIndex === currentSongIndex
+                  ? "bg-yellow-400 text-gray-900 font-bold"
+                  : "text-white hover:bg-white hover:bg-opacity-20"
+              )}
+              onClick={() => onSongSelect(actualIndex)}
+            >
+              <div className="text-base font-semibold">{actualIndex + 1}. {song.sneakyName ? song.sneakyName : song.title}</div>
+              {!song.sneakyName && <div className="text-sm text-white text-opacity-70">by {song.band}</div>}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };
@@ -196,7 +239,7 @@ const App = () => {
         navigateNextSong();
       }
     } else {
-      if (currentLineIndex < currentSection.lines.length - 1) {
+      if (currentLineIndex < currentSection.length - 1) {
         setCurrentLineIndex(prev => prev + 1);
       } else if (currentSectionIndex < currentSong.lyrics.length - 1) {
         setCurrentSectionIndex(prev => prev + 1);
@@ -217,7 +260,7 @@ const App = () => {
       setPage('app');
       setCurrentSongIndex(lastSongIndex);
       setCurrentSectionIndex(lastSectionIndex);
-      setCurrentLineIndex(isMultiLineMode ? 0 : lastSection.lines.length - 1);
+      setCurrentLineIndex(isMultiLineMode ? 0 : lastSection.length - 1);
       return;
     }
 
@@ -236,7 +279,7 @@ const App = () => {
 
         setCurrentSongIndex(prevSongIndex);
         setCurrentSectionIndex(lastSectionIndex);
-        setCurrentLineIndex(isMultiLineMode ? 0 : lastSection.lines.length - 1);
+        setCurrentLineIndex(isMultiLineMode ? 0 : lastSection.length - 1);
         setIsFadingOut(false);
       }, 500);
     } else if (isMultiLineMode) {
@@ -257,7 +300,7 @@ const App = () => {
         // This is the new logic to go to the previous section
         setCurrentSectionIndex(prev => prev - 1);
         const prevSection = currentSong.lyrics[currentSectionIndex - 1];
-        setCurrentLineIndex(prevSection.lines.length - 1);
+        setCurrentLineIndex(prevSection.length - 1);
       } else {
         // When at the first line of the first section, go back to the title page
         setIsFadingOut(true);
@@ -267,6 +310,16 @@ const App = () => {
         }, 500);
       }
     }
+  };
+
+  const handleSongSelect = (index) => {
+    setIsFadingOut(true);
+    setTimeout(() => {
+      setCurrentSongIndex(index);
+      setCurrentSectionIndex(-1);
+      setCurrentLineIndex(0);
+      setIsFadingOut(false);
+    }, 500);
   };
 
   const toggleControlScheme = () => {
@@ -294,7 +347,7 @@ const App = () => {
     setPage('app');
     setCurrentSongIndex(lastSongIndex);
     setCurrentSectionIndex(lastSectionIndex);
-    setCurrentLineIndex(isMultiLineMode ? 0 : lastSection.lines.length - 1);
+    setCurrentLineIndex(isMultiLineMode ? 0 : lastSection.length - 1);
   };
 
   useEffect(() => {
@@ -443,15 +496,12 @@ const App = () => {
   const lineClass = (index) => {
     const baseClasses = "text-center font-semibold my-4 transition-all duration-500 ease-in-out";
     if (isMultiLineMode) {
-      return twMerge(baseClasses, "text-[50px]");
+      return twMerge(baseClasses, "text-4xl sm:text-6xl md:text-7xl");
     } else {
       if (index === currentLineIndex) {
-        return twMerge(baseClasses, "text-xl sm:text-3xl md:text-4xl font-bold text-yellow-400 animate-pulse-once drop-shadow-[0_4px_8px_rgba(0,0,0,0.7)] transform scale-150 transform-origin-center");
+        return twMerge(baseClasses, "text-3xl sm:text-5xl md:text-6xl font-bold text-yellow-400 animate-pulse-once drop-shadow-[0_4px_8px_rgba(0,0,0,0.7)] transform scale-150 transform-origin-center");
       }
-      if (index < currentLineIndex) {
-        return twMerge(baseClasses, "text-xl sm:text-3xl md:text-4xl text-white text-opacity-40");
-      }
-      return twMerge(baseClasses, "text-xl sm:text-3xl md:text-4xl text-white");
+      return twMerge(baseClasses, "text-2xl sm:text-4xl md:text-5xl text-white", index < currentLineIndex ? "text-opacity-40" : "text-opacity-100");
     }
   };
 
@@ -544,7 +594,7 @@ const App = () => {
       ) : (
         <div className="flex items-center justify-center h-full">
           <div className={twMerge(lyricsContainerClass, 'max-h-[75vh] md:max-h-[85vh]')} ref={containerRef}>
-            {currentSection && currentSection.lines.map((line, index) => (
+            {currentSection && currentSection.map((line, index) => (
               <p key={index} ref={el => lineRefs.current[index] = el} className={lineClass(index)}>
                 {line}
               </p>
@@ -554,17 +604,24 @@ const App = () => {
       )}
 
       {currentSectionIndex === -1 && (
-        <div className="absolute bottom-4 left-4 flex flex-col items-start group">
-          <div className="text-white text-opacity-50 group-hover:text-opacity-100 transition-opacity duration-200">
-            <FaInfoCircle size={24} />
-          </div>
+        <>
+          <TableOfContents
+            songs={songs}
+            currentSongIndex={currentSongIndex}
+            onSongSelect={handleSongSelect}
+          />
+          <div className="absolute top-4 left-4 flex flex-col items-start group">
+            <div className="text-white text-opacity-50 group-hover:text-opacity-100 transition-opacity duration-200">
+              <FaInfoCircle size={24} />
+            </div>
 
-          <div
-            className="absolute bottom-full mb-4 w-64 p-4 rounded-lg bg-gray-800 bg-opacity-70 text-white text-opacity-80 text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100 pointer-events-none"
-          >
-            {getHelpText()}
+            <div
+              className="absolute top-full mb-4 w-64 p-4 rounded-lg bg-gray-800 bg-opacity-70 text-white text-opacity-80 text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100 pointer-events-none"
+            >
+              {getHelpText()}
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
